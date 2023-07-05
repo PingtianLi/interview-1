@@ -326,7 +326,26 @@ Bit mode: 2;    // mode 占 2 位
 * 位域在内存中的布局是与机器有关的
 * 位域的类型必须是整型或枚举类型，带符号类型中的位域的行为将因具体实现而定
 * 取地址运算符（&）不能作用于位域，任何指针都无法指向类的位域
-
+```cpp
+#include <iostream>
+ 
+struct S
+{
+    // three-bit unsigned field, allowed values are 0...7
+    unsigned int b : 3;
+};
+ 
+int main()
+{
+    S s = {6};
+ 
+    ++s.b; // store the value 7 in the bit-field
+    std::cout << s.b << '\n'; // --> 7
+ 
+    ++s.b; // the value 8 does not fit in this bit-field
+    std::cout << s.b << '\n'; // --> 0, formally implementation-defined, typically 0 
+}
+```
 ### extern "C"
 
 * 被 extern 限定的函数或变量是 extern 类型的
