@@ -291,6 +291,10 @@ assert( p != NULL );    // assert 不可用
 * sizeof 对数组，得到整个数组所占空间大小。
 * sizeof 对指针，得到指针本身所占空间大小。
 
+### #pragma 宏的定义
+[参考](https://www.geeksforgeeks.org/pragma-directive-in-c-c/)
+特殊的宏，具体效果在不同的compiler之间不同，每种 pragma directive 是一个特定特性的开关
+
 ### #pragma pack(n)
 
 设定结构体、联合以及类成员变量以 n 字节方式对齐
