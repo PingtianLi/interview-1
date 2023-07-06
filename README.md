@@ -723,6 +723,11 @@ auto fcn2(It beg, It end) -> typename remove_reference<decltype(*beg)>::type
     return *beg;    // 返回序列中一个元素的拷贝
 }
 ```
+https://en.cppreference.com/w/cpp/language/decltype
+decltype(fx());	const int&&	An rvalue reference to a const int.
+decltype(var);	int	The type of variable var.
+decltype(a->x);	double	The type of the member access.
+decltype((a->x));	const double&	The inner parentheses cause the statement to be evaluated as an expression instead of a member access. And because a is declared as a const pointer, the type is a reference to const double.
 
 ### 引用
 
