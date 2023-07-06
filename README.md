@@ -690,9 +690,10 @@ enum class open_modes { input, output, append };
 ```
 
 #### 不限定作用域的枚举类型
-
+不加`class`会使所有枚举内容在当前作用域下初始化，如下面的例子中，我们不能初始化名为red，yellow或green的变量，因为已经被不限定作用域的枚举占用了
 ```cpp
 enum color { red, yellow, green };
+unsigned_int red; // -> compile error due to red already in current namespace
 enum { floatPrec = 6, doublePrec = 10 };
 ```
 
@@ -2611,7 +2612,7 @@ ssize_t write(int fd, const void *buf, size_t count);
 * 网状模型（network model）
 * 关系模型（relational model）
     * 关系（relation）：一个关系对应通常说的一张表
-    * 元组（tuple）：表中的一行即为一个元组
+    * 元组（tuple）：表中的一行即为一个元组 , https://www.geeksforgeeks.org/tuples-in-c/
     * 属性（attribute）：表中的一列即为一个属性
     * 码（key）：表中可以唯一确定一个元组的某个属性组
     * 域（domain）：一组具有相同数据类型的值的集合
