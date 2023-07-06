@@ -556,6 +556,27 @@ int main()
 * 友元关系不可传递
 * 友元关系的单向性
 * 友元声明的形式及数量不受限制
+```cpp
+class CCar
+{
+private:
+    int price;
+    friend class CDriver;  //声明 CDriver 为友元类
+};
+class CDriver
+{
+public:
+    CCar myCar;
+    void ModifyCar()  //改装汽车
+    {
+        myCar.price += 1000;  //因CDriver是CCar的友元类，故此处可以访问其私有成员
+    }
+};
+int main()
+{
+    return 0;
+}
+```
 
 ### using
 
